@@ -1,0 +1,76 @@
+﻿<Window x:Class="project._13.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:project._13"
+        mc:Ignorable="d"
+        Title="Практическая работа тринадцать" Height="450" Width="503" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="253*"/>
+            <ColumnDefinition Width="250*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="27"/>
+            <RowDefinition Height="202*"/>
+            <RowDefinition Height="149*"/>
+            <RowDefinition Height="21.039"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.ColumnSpan="2">
+            <MenuItem Header="Файл" Height="35">
+                <MenuItem Header="Сохранить" Click="btnSave_Click"/>
+                <MenuItem Header="Открыть" Click="btnOpen_Click"/>
+                <Separator/>
+                <MenuItem Header="Закрыть" Click="btnExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Вид" Height="35">
+                <CheckBox Content="Панель инструментов" x:Name="IsToolPanelEnable" IsChecked="{x:Null}" Checked="IsToolPanelEnable_Checked" Unchecked="IsToolPanelEnable_Unchecked"/>
+            </MenuItem>
+            <MenuItem Header="Справка" Height="35">
+                <MenuItem Header="О программе" Click="btnInfo_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <ToolBar x:Name="ToolPanel" Grid.Row="1" Grid.ColumnSpan="2">
+            <Button x:Name="btnOpen" ToolTip="Открыть" Click="btnOpen_Click">
+                <Image Source="C:\Users\p0god\source\repos\project.13\project.13\icons\open.ico"/>
+            </Button>
+            <Button x:Name="btnSave" ToolTip="Сохранить" Click="btnSave_Click">
+                <Image Source="C:\Users\p0god\source\repos\project.13\project.13\icons\save.ico"/>
+            </Button>
+            <Separator/>
+            <Button x:Name="btnStart" ToolTip="Открыть" Click="btnStart_Click">
+                <Image Source="C:\Users\p0god\source\repos\project.13\project.13\icons\start.ico"/>
+            </Button>
+            <Separator/>
+            <Button x:Name="btnInfo" ToolTip="О программе" Click="btnInfo_Click">
+                <Image Source="C:\Users\p0god\source\repos\project.13\project.13\icons\info.ico"/>
+            </Button>
+            <Button x:Name="btnExit" ToolTip="Выход" Click="btnExit_Click">
+                <Image Source="C:\Users\p0god\source\repos\project.13\project.13\icons\exit.ico"/>
+            </Button>
+        </ToolBar>
+        <DataGrid x:Name="Table" Grid.Row="2" Grid.ColumnSpan="2" SelectionChanged="Table_SelectionChanged"/>
+        <GroupBox Header="Создание таблицы" Grid.Row="3" Grid.Column="0" VerticalAlignment="Top" Height="132">
+            <Grid>
+                <Button x:Name="SettingsB" Click="SettingsB_Click" Height="25" VerticalAlignment="Top" Content="Настройки" Margin="5,10,10,0"/>
+
+
+                <Button x:Name="CreateAndFillTable" Margin="5,49,10,36" Content="Создать и заполнить таблицу" Click="btnCreate_Click"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Поиск стоблца" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" Height="132">
+            <Grid>
+                <Button x:Name="FindColumn" Content="Найти стоблец, в котором больше всего &#xD;&#xA;одинаковых элементов" Margin="0,0,0,68" Click="btnStart_Click"/>
+                <TextBlock x:Name="Results" Margin="0,45,0,10"/>
+            </Grid>
+        </GroupBox>
+        <StatusBar Grid.Row="4" Grid.ColumnSpan="2" Margin="0,1,0,0">
+            <TextBlock x:Name="tbTableInfo"/>
+            <Separator/>
+            <TextBlock x:Name="tbCellInfo"/>
+        </StatusBar>
+    </Grid>
+</Window>
